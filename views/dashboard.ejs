@@ -19,6 +19,8 @@
       </ul>
 
       <form action="/add-book" method="POST" class="add-own-book" enctype="multipart/form-data">
+        <input type="hidden" name="user-name" value="" />
+
         <div class="form-group">
           <!-- <label for="own-book-name">Name:</label> -->
           <input autofocus name="own-book-name" class="own-book-input" placeholder="Your book's name" />
