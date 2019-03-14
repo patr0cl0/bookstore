@@ -1,34 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Storebook!</title>
-    <link rel='stylesheet' href='/stylesheets/home.css' />
-  </head>
-  <body>
-    <div class="home-container">
-      <h1 class="home-title">Hi! can you sign up with your name?</h1>
-      <p class="home-description">
-        Welcome to the book store I'm the world!
-        It's amazing, we store the books that you have and the ones that you wish
-        in our servers and they 100%, secure you know why? Because we use a DB based
-        on a folder with your name and the books :).
-      </p>
-      <p class="home-advice">
-        <b>No one</b> can access to that... je-je.
-      </p>
-      <form method="GET" action="/dashboard">
-        <label for="name">
-          Name:
-        </label>
-        <input
-          autofocus
-          class="home-name-input"
-          type="text"
-          name="name"
-          placeholder="name"
-          autocomplete="name"
-        >
-      </form>
-    </div>
-  </body>
-</html>
+<%- include('default'); -%>
+
+<div class="home-container">
+  <h1 class="home-title">Hi! can you sign up with your name?</h1>
+  <p class="home-description">
+    Welcome to the book store I'm the world!
+    It's amazing, we store the books that you have and the ones that you wish
+    in our servers and they 100%, secure you know why? Because we use a DB based
+    on a folder with your name and the books :).
+  </p>
+  <p class="home-advice">
+    <b>No one</b> can access to that... je-je.
+  </p>
+  <form method="GET" action="/dashboard">
+    <label for="name">
+      Name:
+    </label>
+    <input autofocus class="home-name-input" type="text" name="name" placeholder="name" autocomplete="name">
+  </form>
+</div>

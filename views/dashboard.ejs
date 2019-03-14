@@ -1,13 +1,59 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Storebook!</title>
-    <link rel='stylesheet' href='/stylesheets/dashboard.css' />
-  </head>
-  <body>
-    <div class="dashboard-container">
-      <h3 class="welcome-title">Welcome: <%= name %></h3>
-      
+<%- include('default'); -%>
+
+<div class="dashboard-container">
+  <div class="welcome-title-container">
+    <h3 class="welcome-title">Welcome: <%= name %></h3>
+  </div>
+
+  <div class="dashboard-books-grid">
+    <div class="own-books books-container">
+      <ul class="own-books-list books-list">
+        <li class="own-books book-li">
+          <img class="book-thumb"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4LIC-yw86IWcwO-rabtXQ04Jana61aTSEsyQkfQYut50qlQ2DCA"
+            alt="book cover" />
+          <span class="book-name-thumb">
+            Harry potter: The azcaban prisoner
+          </span>
+        </li>
+      </ul>
+
+      <form action="/add-book" method="POST" class="add-own-book" enctype="multipart/form-data">
+        <div class="form-group">
+          <!-- <label for="own-book-name">Name:</label> -->
+          <input autofocus name="own-book-name" class="own-book-input" placeholder="Your book's name" />
+        </div>
+
+        <div class="form-group form-group-file">
+          <input id="own-book-photo"  name="image" class="own-book-input-file" type="file" />
+        </div>
+
+        <button type="submit">Guardar</button>
+      </form>
+
+      <span id="own-book-photo-holder" />
     </div>
-  </body>
-</html>
+    <!-- <div class="wished-books">
+
+    </div> -->
+  </div>
+</div>
+
+<script>
+  const ownBookPhotoInput = document.getElementById('own-book-photo');
+
+  ownBookPhotoInput.parentElement.addEventListener('click', () => {
+    ownBookPhotoInput.click();
+  });
+
+  ownBookPhotoInput.addEventListener('change', e => {
+    const photo = e.target.files['0'];
+    
+    if (!photo) {
+      return;
+    }
+
+    document.getElementById('own-book-photo-holder').innerHTML = "";
+    document.getElementById('own-book-photo-holder').append(photo.name);
+  })
+</script>
